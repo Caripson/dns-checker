@@ -19,23 +19,26 @@ document.getElementById("checkBtn").addEventListener("click", () => {
           dns = match[1];
         }
       }
-      statusDiv.textContent += ` (Resolver: ${dns})`;
-
-
       // List of resolvers considered safe - edit to match your own
-      //const trustedResolvers = ['1.2.3.4', 'dns.safesurf.se'];
-      const trustedResolvers = ['192.178.94.20','192.178.94.24','2a00:1450:4025:3c03::127','2a00:1450:4025:3c03::124','2a00:1450:4025:3c05::12a','104.23.222.24','162.158.180.203','162.158.180.203'];
-  
+      const trustedResolvers = [
+        '192.178.94.20',
+        '192.178.94.24',
+        '2a00:1450:4025:3c03::127',
+        '2a00:1450:4025:3c03::124',
+        '2a00:1450:4025:3c05::12a',
+        '104.23.222.24',
+        '162.158.180.203'
+      ];
 
-      // Display message based on whether the resolver is trusted
       // Reset any previous status classes
       statusDiv.classList.remove('text-success', 'text-danger', 'text-warning');
 
+      // Display the resolver and whether it is trusted
       if (trustedResolvers.includes(dns)) {
-        statusDiv.textContent = `✅ You are protected (Resolver: ${dns})`;
+        statusDiv.textContent = `Resolver: ${dns} - \u2705 Trusted`;
         statusDiv.classList.add('text-success');
       } else {
-        statusDiv.textContent = `⚠️ You are not protected (Resolver: ${dns})`;
+        statusDiv.textContent = `Resolver: ${dns} - \u274C Untrusted`;
         statusDiv.classList.add('text-danger');
       }
     })

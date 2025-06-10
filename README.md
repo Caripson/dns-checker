@@ -13,7 +13,7 @@ This project contains a small HTML and JavaScript application for verifying whic
 
 1. Upload the files in this repository to your own GitHub repository.
 2. Enable **GitHub Pages** in the repository settings.
-3. Navigate to `https://caripson.github.io/dns-checker/` to load the page.
+3. Navigate to `https://caripson.github.io/dns-checker/` (or the URL of your fork) to load the page.
 
 ## Configuring your trusted resolvers
 
@@ -23,19 +23,19 @@ Open `script.js` and modify the `trustedResolvers` array. Add every resolver IP 
 const trustedResolvers = ['1.1.1.1', '1.0.0.1']; // Add your resolvers here
 ```
 
-## Running the local test server
+## Running the optional local test server
 
-To detect the actual DNS resolver used by your device, start the included
-Node.js server and open the page through it. The server proxies requests to
-`bash.ws` and avoids cross-origin restrictions.
+For the GitHub Pages version the browser queries `resolver.dnscrypt.info` via
+Cloudflare to reveal the resolver IP. If you want to perform the more extensive
+`bash.ws` leak test locally you can run the included Node.js proxy:
 
 ```bash
 npm install
 node server.js
 ```
 
-Then navigate to `http://localhost:3000` on your iPhone and click **Check my
-resolver**. The page will display the DNS servers observed by `bash.ws`.
+Open `http://localhost:3000` and click **Check my resolver**. The page will show
+the DNS servers detected by `bash.ws`.
 
 ## Design changes
 
