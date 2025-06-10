@@ -13,7 +13,7 @@ This project contains a small HTML and JavaScript application for verifying whic
 
 1. Upload the files in this repository to your own GitHub repository.
 2. Enable **GitHub Pages** in the repository settings.
-3. Navigate to `https://<your-username>.github.io/dns-checker/` to load the page.
+3. Navigate to `https://caripson.github.io/dns-checker/` to load the page.
 
 ## Configuring your trusted resolvers
 
