@@ -6,7 +6,6 @@
 // Initialize the page after DOM is ready
 function init() {
   getEl('dnsBtn').addEventListener('click', checkDNS);
-  getEl('checkBtn').addEventListener('click', checkMyResolver);
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -124,82 +123,6 @@ function checkDNS() {
       displayError('Error fetching DNS');
       toggleLoading(false);
     });
-}
-
-// --- Resolver check functionality ---
-
-// Fetch the resolver IP from the special TXT record
-function checkMyResolver() {
-  const status = getEl('status');
-  status.className = 'text-large';
-  setText(status, 'Checking...');
-  fetch('https://cloudflare-dns.com/dns-query?name=resolver.dnscrypt.info&type=TXT', {
-    headers: { 'Accept': 'application/dns-json' }
-  })
-    .then(r => r.json())
-    .then(data => {
-      const ip = parseResolverIp(data);
-      updateResolverStatus(ip);
-    })
-    .catch(() => {
-      status.className = 'text-large text-warning';
-      setText(status, 'An error occurred while checking.');
-    });
-}
-
-// Extract resolver IP from DNS response
-function parseResolverIp(data) {
-  if (data.Answer && data.Answer.length > 0) {
-    const txt = data.Answer[0].data.replace(/"/g, '');
-    const match = txt.match(/Resolver IP:\s*([^\s]+)/i);
-    if (match) return match[1];
-  }
-  return 'Unknown';
-}
-
-// Update the resolver status element with result
-function updateResolverStatus(ip) {
-  const status = getEl('status');
-  status.classList.remove('text-success', 'text-danger', 'text-warning');
-  if (isTrustedResolver(ip)) {
-    status.classList.add('text-success');
-    setText(status, `Resolver: ${ip} - \u2705 Trusted`);
-  } else {
-    status.classList.add('text-danger');
-    setText(status, `Resolver: ${ip} - \u274C Untrusted`);
-  }
-}
-
-// Get list of trusted resolvers
-function getTrustedResolvers() {
-  return [
-    '192.178.94.20',
-    '192.178.94.24',
-    '2a00:1450:4025:3c03::127',
-    '2a00:1450:4025:3c03::124',
-    '2a00:1450:4025:3c05::12a',
-    '104.23.222.24',
-    '162.158.180.203',
-    '8.8.8.8'
-  ];
-}
-
-// Determine if a resolver IP is trusted
-function isTrustedResolver(ip) {
-  return getTrustedResolvers().includes(ip);
-}
-
-// Add a resolver IP to the trusted list (not persisted)
-function addTrustedResolver(ip) {
-  const list = getTrustedResolvers();
-  if (!list.includes(ip)) list.push(ip);
-}
-
-// Remove a resolver IP from the trusted list (not persisted)
-function removeTrustedResolver(ip) {
-  const list = getTrustedResolvers();
-  const idx = list.indexOf(ip);
-  if (idx > -1) list.splice(idx, 1);
 }
 
 // Format IPv4/IPv6 address (placeholder for future logic)
