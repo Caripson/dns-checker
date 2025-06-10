@@ -27,7 +27,8 @@ document.getElementById("checkBtn").addEventListener("click", () => {
         '2a00:1450:4025:3c03::124',
         '2a00:1450:4025:3c05::12a',
         '104.23.222.24',
-        '162.158.180.203'
+        '162.158.180.203',
+        '8.8.8.8'
       ];
 
       // Reset any previous status classes
