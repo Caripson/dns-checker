@@ -42,9 +42,12 @@ components:
 
 - `btn` – Base button style with hover effect.
 - `btn-outline` – Transparent button with an outline.
+- `btn-secondary` – Alternate button using a secondary theme color.
 - `card` – Panel styling used for wrappers.
-- `text-success`, `text-danger`, `text-warning` – Text colors for different states.
+- `text-success`, `text-danger`, `text-warning`, `text-muted` – Text colors for different states.
 - `text-large` – Slightly larger text size for emphasis.
+- `text-left`, `text-center`, `text-right` – Alignment helpers.
+- `bg-light`, `bg-primary` – Background utilities.
 
 An example usage can be found in `index.html`:
 
@@ -53,6 +56,12 @@ An example usage can be found in `index.html`:
   <h1 class="title">DNS Resolver Check</h1>
   <button id="checkBtn" class="btn">Check my resolver</button>
   <div id="status" class="text-large">Status: Not checked yet.</div>
+</div>
+
+<div class="container card bg-light text-center" style="margin-top: 2rem;">
+  <h2 class="title">Example Styling</h2>
+  <p class="text-muted">Use helper classes to quickly style text and backgrounds.</p>
+  <button class="btn-secondary">Secondary Action</button>
 </div>
 ```
 

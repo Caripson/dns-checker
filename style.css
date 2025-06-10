@@ -1,8 +1,10 @@
 /* Theme variables to easily tweak colors and fonts */
 :root {
   --primary-color: #4caf50;
+  --secondary-color: #2196f3;
   --danger-color: #f44336;
   --warning-color: #ffa000;
+  --light-color: #fafafa;
   --font-stack: "Segoe UI", Roboto, sans-serif;
 }
 
@@ -56,6 +58,16 @@ body {
   border: 2px solid var(--primary-color);
 }
 
+/* Secondary button using a different theme color */
+.btn-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #1e88e5;
+}
+
 /* Text area that displays the resolver status */
 #status {
   margin-top: 1rem;
@@ -78,3 +90,23 @@ body {
 .text-warning {
   color: var(--warning-color);
 }
+
+/* Additional text utilities */
+.text-muted {
+  color: #666;
+}
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Background helpers */
+.bg-light {
+  background: var(--light-color);
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
