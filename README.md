@@ -4,8 +4,8 @@ This project contains a small HTML and JavaScript application for verifying whic
 
 ## How it works
 
-- When the user clicks **Check my resolver** a request is sent to Cloudflare's `1.1.1.1/cdn-cgi/trace` endpoint.
-- The DNS resolver address is extracted from the response.
+- When the user clicks **Check my resolver** the script performs a DNS-over-HTTPS query to `resolver.dnscrypt.info` via Cloudflare.
+- The DNS resolver address is extracted from the TXT record returned.
 - The resolver is compared against a list of trusted resolvers defined in `script.js`.
 - If it matches, `You are protected` is shown; otherwise `You are not protected`.
 

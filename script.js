@@ -5,16 +5,20 @@ document.getElementById("checkBtn").addEventListener("click", () => {
   statusDiv.className = "text-large";
   statusDiv.textContent = "Checking..."; // initial status
 
-  // Query Cloudflare's trace endpoint to identify the resolver
-  fetch('https://1.1.1.1/cdn-cgi/trace')
-    .then(response => response.text())
+  // Query a special TXT record that returns the resolver IP
+  fetch('https://cloudflare-dns.com/dns-query?name=resolver.dnscrypt.info&type=TXT', {
+    headers: { 'Accept': 'application/dns-json' }
+  })
+    .then(response => response.json())
     .then(data => {
-      // Convert the response into a key/value object
-      const parsed = Object.fromEntries(
-        data.trim().split('\n').map(line => line.split('='))
-      );
-
-      const dns = parsed.dns || "Unknown";
+      let dns = "Unknown";
+      if (data.Answer && data.Answer.length > 0) {
+        const txt = data.Answer[0].data.replace(/"/g, "");
+        const match = txt.match(/Resolver IP:\s*([^\s]+)/i);
+        if (match) {
+          dns = match[1];
+        }
+      }
       statusDiv.textContent += ` (Resolver: ${dns})`;
 
 
