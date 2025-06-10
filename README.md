@@ -34,3 +34,27 @@ body {
 ```
 
 The code has been documented with inline comments to help you customize the application further.
+
+## Advanced CSS styling
+
+`style.css` now includes a handful of helper classes for easily styling your own
+components:
+
+- `btn` – Base button style with hover effect.
+- `btn-outline` – Transparent button with an outline.
+- `card` – Panel styling used for wrappers.
+- `text-success`, `text-danger`, `text-warning` – Text colors for different states.
+- `text-large` – Slightly larger text size for emphasis.
+
+An example usage can be found in `index.html`:
+
+```html
+<div class="container card">
+  <h1 class="title">DNS Resolver Check</h1>
+  <button id="checkBtn" class="btn">Check my resolver</button>
+  <div id="status" class="text-large">Status: Not checked yet.</div>
+</div>
+```
+
+These utility classes make it easier to apply consistent styling across your
+page without editing each rule individually.

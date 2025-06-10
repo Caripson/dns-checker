@@ -1,6 +1,14 @@
+/* Theme variables to easily tweak colors and fonts */
+:root {
+  --primary-color: #4caf50;
+  --danger-color: #f44336;
+  --warning-color: #ffa000;
+  --font-stack: "Segoe UI", Roboto, sans-serif;
+}
+
 /* General page styling */
 body {
-  font-family: sans-serif;
+  font-family: var(--font-stack);
   background: #f5f5f5;
   display: flex;
   height: 100vh;
@@ -9,24 +17,64 @@ body {
 }
 
 /* Wrapper holding the heading, button and status */
-.container {
-  background: white;
+.container,
+.card {
+  background: #fff;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-/* Style for the check button */
-button {
+/* Large heading styling */
+.title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+/* Reusable button styles */
+.btn {
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
 /* Text area that displays the resolver status */
 #status {
   margin-top: 1rem;
   font-weight: bold;
+}
+
+/* Utility text helpers */
+.text-large {
+  font-size: 1.25rem;
+}
+
+.text-success {
+  color: var(--primary-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
 }
