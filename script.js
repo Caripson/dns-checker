@@ -18,13 +18,7 @@ document.getElementById("checkBtn").addEventListener("click", () => {
 
       // List of resolvers considered safe - edit to match your own
       //const trustedResolvers = ['1.2.3.4', 'dns.safesurf.se'];
-      const trustedResolvers = [
-    '192.178.94.20',
-    '192.178.94.24',
-    '2a00:1450:4025:3c03::127',
-    '2a00:1450:4025:3c03::124',
-    '2a00:1450:4025:3c05::12a'
-  ];
+      const trustedResolvers = ['192.178.94.20','192.178.94.24','2a00:1450:4025:3c03::127','2a00:1450:4025:3c03::124','2a00:1450:4025:3c05::12a'];
   
 
       // Display message based on whether the resolver is trusted
