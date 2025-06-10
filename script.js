@@ -15,6 +15,8 @@ document.getElementById("checkBtn").addEventListener("click", () => {
       );
 
       const dns = parsed.dns || "Unknown";
+      statusDiv.textContent += ` (Resolver: ${dns})`;
+
 
       // List of resolvers considered safe - edit to match your own
       //const trustedResolvers = ['1.2.3.4', 'dns.safesurf.se'];
