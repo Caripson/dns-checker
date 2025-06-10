@@ -23,6 +23,20 @@ Open `script.js` and modify the `trustedResolvers` array. Add every resolver IP 
 const trustedResolvers = ['1.1.1.1', '1.0.0.1']; // Add your resolvers here
 ```
 
+## Running the local test server
+
+To detect the actual DNS resolver used by your device, start the included
+Node.js server and open the page through it. The server proxies requests to
+`bash.ws` and avoids cross-origin restrictions.
+
+```bash
+npm install
+node server.js
+```
+
+Then navigate to `http://localhost:3000` on your iPhone and click **Check my
+resolver**. The page will display the DNS servers observed by `bash.ws`.
+
 ## Design changes
 
 The layout is defined in `index.html` and styled in `style.css`. The CSS file includes comments explaining each block so that you can easily adjust fonts, colors or spacing. For example, you could change the background color by editing the `body` rule:
