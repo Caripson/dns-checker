@@ -2,6 +2,7 @@
 document.getElementById("checkBtn").addEventListener("click", () => {
   // Element where status messages are shown
   const statusDiv = document.getElementById("status");
+  statusDiv.className = "text-large";
   statusDiv.textContent = "Checking..."; // initial status
 
   // Query Cloudflare's trace endpoint to identify the resolver
@@ -19,17 +20,21 @@ document.getElementById("checkBtn").addEventListener("click", () => {
       const trustedResolvers = ['1.2.3.4', 'dns.safesurf.se'];
 
       // Display message based on whether the resolver is trusted
+      // Reset any previous status classes
+      statusDiv.classList.remove('text-success', 'text-danger', 'text-warning');
+
       if (trustedResolvers.includes(dns)) {
         statusDiv.textContent = `✅ You are protected (Resolver: ${dns})`;
-        statusDiv.style.color = 'green';
+        statusDiv.classList.add('text-success');
       } else {
         statusDiv.textContent = `⚠️ You are not protected (Resolver: ${dns})`;
-        statusDiv.style.color = 'red';
+        statusDiv.classList.add('text-danger');
       }
     })
     .catch(err => {
       // Handle network or parsing errors
       statusDiv.textContent = "An error occurred while checking.";
-      statusDiv.style.color = 'orange';
+      statusDiv.classList.remove('text-success', 'text-danger', 'text-warning');
+      statusDiv.classList.add('text-warning');
     });
 });

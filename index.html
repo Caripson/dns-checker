@@ -7,10 +7,24 @@
   <!-- Adjust styles in style.css to customize the look -->
 </head>
 <body>
-  <div class="container">
-    <h1>DNS Resolver Check</h1>
-    <button id="checkBtn">Check my resolver</button>
-    <div id="status">Status: Not checked yet.</div>
+  <div class="container card">
+    <h1 class="title">DNS Resolver Check</h1>
+    <button id="checkBtn" class="btn">Check my resolver</button>
+    <div id="status" class="text-large">Status: Not checked yet.</div>
+  </div>
+
+  <!-- Example block demonstrating additional utilities -->
+  <div class="container card bg-light text-center mt-2">
+    <h2 class="title">Example Styling</h2>
+    <p class="text-muted">Use helper classes to quickly style text and backgrounds.</p>
+    <button class="btn-secondary">Secondary Action</button>
+  </div>
+
+  <!-- Further example showing margin and outline utilities -->
+  <div class="container card bg-primary text-right mt-2">
+    <h2 class="title text-light">Spacing &amp; Outline</h2>
+    <p class="text-light">Buttons can be transparent with an outline.</p>
+    <button class="btn-outline">Outlined Action</button>
   </div>
   <script src="script.js"></script>
   <!-- Resolver checking logic lives in script.js -->
