@@ -110,3 +110,12 @@ body {
   color: #fff;
 }
 
+/* Spacing utilities */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* Text color helper for light backgrounds */
+.text-light { color: #fff; }
+

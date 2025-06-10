@@ -44,10 +44,11 @@ components:
 - `btn-outline` – Transparent button with an outline.
 - `btn-secondary` – Alternate button using a secondary theme color.
 - `card` – Panel styling used for wrappers.
-- `text-success`, `text-danger`, `text-warning`, `text-muted` – Text colors for different states.
+- `text-success`, `text-danger`, `text-warning`, `text-muted`, `text-light` – Text colors for different states.
 - `text-large` – Slightly larger text size for emphasis.
 - `text-left`, `text-center`, `text-right` – Alignment helpers.
 - `bg-light`, `bg-primary` – Background utilities.
+- `mt-1`, `mt-2` – Margin helpers for vertical spacing.
 
 An example usage can be found in `index.html`:
 
@@ -58,10 +59,16 @@ An example usage can be found in `index.html`:
   <div id="status" class="text-large">Status: Not checked yet.</div>
 </div>
 
-<div class="container card bg-light text-center" style="margin-top: 2rem;">
+<div class="container card bg-light text-center mt-2">
   <h2 class="title">Example Styling</h2>
   <p class="text-muted">Use helper classes to quickly style text and backgrounds.</p>
   <button class="btn-secondary">Secondary Action</button>
+</div>
+
+<div class="container card bg-primary text-right mt-2">
+  <h2 class="title text-light">Spacing &amp; Outline</h2>
+  <p class="text-light">Buttons can be transparent with an outline.</p>
+  <button class="btn-outline">Outlined Action</button>
 </div>
 ```
 
